@@ -498,30 +498,29 @@
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
+      gap: 28px;
       margin-top: 16px;
     }
     .why-card {
-      padding: 36px 28px;
       background: var(--warm);
       border-radius: 10px;
+      overflow: hidden;
       border-bottom: 3px solid var(--accent);
-      transition: transform 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .why-card:hover { transform: translateY(-4px); }
-    .why-icon {
-      width: 52px;
-      height: 52px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
+    .why-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+    .why-card-img {
+      width: 100%;
+      height: 190px;
+      background-size: cover;
+      background-position: center;
     }
-    .why-icon svg { width: 24px; height: 24px; fill: #fff; }
-    .why-card h3 { font-size: 1.2rem; margin-bottom: 12px; font-weight: 600; }
-    .why-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+    .why-card-body {
+      padding: 24px 24px 28px;
+    }
+    .why-card-body h3 { font-size: 1.15rem; margin-bottom: 10px; font-weight: 600; }
+    .why-card-body p { color: var(--text-muted); font-size: 0.93rem; line-height: 1.7; }
 
     /* ===== GALLERY STRIP ===== */
     .gallery-section {
@@ -1139,48 +1138,61 @@
       <p class="section-subtitle">It's the small things that add up to an exceptional experience every single visit.</p>
     </div>
     <div class="why-grid">
+
       <div class="why-card fade-up">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        <!-- STOCK IMAGE: Replace with a photo showing an established, professional salon interior — warm and inviting -->
+        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=60')"></div>
+        <div class="why-card-body">
+          <h3>25 Years of Excellence</h3>
+          <p>A quarter-century of experience right here in Coleraine. Our reputation has been built one brilliant haircut at a time — and we protect it with every appointment.</p>
         </div>
-        <h3>25 Years of Excellence</h3>
-        <p>A quarter-century of experience right here in Coleraine. Our reputation has been built one brilliant haircut at a time — and we protect it with every appointment.</p>
       </div>
+
       <div class="why-card fade-up">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M16 11C17.66 11 18.99 9.66 18.99 8C18.99 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8C10.99 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z"/></svg>
+        <!-- STOCK IMAGE: Replace with a photo of an experienced stylist working on a client's hair -->
+        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&q=60')"></div>
+        <div class="why-card-body">
+          <h3>Senior Stylists Every Time</h3>
+          <p>Every stylist on our team has 10+ years of hands-on experience. You will never be handed off to a junior. Your hair gets expert attention from start to finish.</p>
         </div>
-        <h3>Senior Stylists Every Time</h3>
-        <p>Every stylist on our team has 10+ years of hands-on experience. You will never be handed off to a junior. Your hair gets expert attention from start to finish.</p>
       </div>
+
       <div class="why-card fade-up">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/></svg>
+        <!-- STOCK IMAGE: Replace with a photo of a happy client looking at their reflection / finished result -->
+        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=60')"></div>
+        <div class="why-card-body">
+          <h3>Results You'll Actually Love</h3>
+          <p>96% recommendation rate from our clients speaks for itself. We listen carefully, consult thoroughly, and only pick up the scissors when we know exactly what result you want.</p>
         </div>
-        <h3>Results You'll Actually Love</h3>
-        <p>96% recommendation rate from our clients speaks for itself. We listen carefully, consult thoroughly, and only pick up the scissors when we know exactly what result you want.</p>
       </div>
+
       <div class="why-card fade-up">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M11.5 2C6.81 2 3 5.81 3 10.5C3 15.19 6.81 19 11.5 19H12V22C16.86 18.66 21 15 21 10.5C21 5.81 17.19 2 11.5 2ZM12.5 16.5H10.5V14.5H12.5V16.5ZM12.5 13H10.5C10.5 9.75 13.5 10 13.5 8C13.5 6.9 12.6 6 11.5 6C10.4 6 9.5 6.9 9.5 8H7.5C7.5 5.79 9.29 4 11.5 4C13.71 4 15.5 5.79 15.5 8C15.5 10.5 12.5 10.75 12.5 13Z"/></svg>
+        <!-- STOCK IMAGE: Replace with a photo showing modern colour or balayage technique being applied -->
+        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=60')"></div>
+        <div class="why-card-body">
+          <h3>Always Up to Date</h3>
+          <p>We invest in continuous training so our team stays ahead of every trend. From the latest balayage techniques to cutting-edge styling — we bring it all to Coleraine.</p>
         </div>
-        <h3>Always Up to Date</h3>
-        <p>We invest in continuous training so our team stays ahead of every trend. From the latest balayage techniques to cutting-edge styling — we bring it all to Coleraine.</p>
       </div>
+
       <div class="why-card fade-up">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 3C6.95 3 3 6.95 3 12S6.95 21 12 21 21 17.05 21 12 17.05 3 12 3ZM12 19C8.13 19 5 15.87 5 12S8.13 5 12 5 19 8.13 19 12 15.87 19 12 19ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"/></svg>
+        <!-- STOCK IMAGE: Replace with a photo of Queen Street Coleraine or the salon exterior -->
+        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=60')"></div>
+        <div class="why-card-body">
+          <h3>Convenient Town Centre Location</h3>
+          <p>Right in the heart of Coleraine on Queen Street — easy to find, easy to park, and central for the whole Causeway Coast area.</p>
         </div>
-        <h3>Convenient Town Centre Location</h3>
-        <p>Right in the heart of Coleraine on Queen Street — easy to find, easy to park, and central for the whole Causeway Coast area.</p>
       </div>
+
       <div class="why-card fade-up">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z"/></svg>
+        <!-- STOCK IMAGE: Replace with a photo of a relaxing head massage or client enjoying a treatment -->
+        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=60')"></div>
+        <div class="why-card-body">
+          <h3>A Salon Experience to Remember</h3>
+          <p>Friendly faces, a relaxed atmosphere, and a legendary head massage that our clients rave about. This is your time — enjoy every minute of it.</p>
         </div>
-        <h3>A Salon Experience to Remember</h3>
-        <p>Friendly faces, a relaxed atmosphere, and a legendary head massage that our clients rave about. This is your time — enjoy every minute of it.</p>
       </div>
+
     </div>
   </div>
 </section>
