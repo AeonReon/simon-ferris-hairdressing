@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simon Ferris Hairdressing | Coleraine's Premier Hair Salon</title>
+  <meta name="description" content="Coleraine's most trusted hair salon for over 25 years. Expert cuts, colour, extensions and styling at 14e Queen Street. Book your appointment today.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #C4956A;
+      --accent-dark: #A87A52;
+      --dark: #1C1C1E;
+      --dark2: #2A2A2E;
+      --warm: #F8F4EF;
+      --white: #FFFFFF;
+      --text: #1C1C1E;
+      --text-muted: #6B6B6B;
+      --border: #E8E0D8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    a { text-decoration: none; color: inherit; }
+
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,149,106,0.4); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .btn-outline:hover { background: #fff; color: var(--dark); }
+    .btn-dark {
+      background: var(--dark);
+      color: #fff;
+    }
+    .btn-dark:hover { background: #333; transform: translateY(-2px); }
+
+    /* ===== EYEBROW ===== */
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .eyebrow-white { color: rgba(255,255,255,0.75); }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 48px;
+    }
+    .text-center { text-align: center; }
+    .text-white { color: #fff; }
+    .section-subtitle.text-white { color: rgba(255,255,255,0.75); }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+    }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.1;
+    }
+    .nav-logo-text span {
+      display: block;
+      font-size: 0.65rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-phone {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+    .nav-phone:hover { color: var(--accent); }
+    .nav-book {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .nav-book:hover { background: var(--accent-dark); }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--dark);
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1560869713-7d0a29430803?w=1400&q=60');
+      background-size: cover;
+      background-position: center top;
+    }
+    /* STOCK IMAGE: Replace with a professional photo of the salon interior or a client getting their hair styled */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(28,28,30,0.80) 55%, rgba(28,28,30,0.40) 100%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-badge::before {
+      content: '★★★★★';
+      color: #FFD700;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      color: #fff;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 40px;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .hero-actions .btn-outline { font-size: 0.95rem; padding: 14px 28px; }
+    .hero-phone-inline {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-phone-inline strong { font-weight: 700; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.3);
+      animation: shrink 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-6px)} }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--warm);
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .trust-item {
+      text-align: center;
+      padding: 24px 16px;
+    }
+    .trust-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .trust-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+    .trust-item + .trust-item {
+      border-left: 1px solid var(--border);
+    }
+
+    /* ===== INTRO ===== */
+    .intro-section {
+      background: var(--white);
+      padding: 96px 0;
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .intro-image {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .intro-image-main {
+      width: 100%;
+      height: 500px;
+      background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=60');
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+    }
+    /* STOCK IMAGE: Replace with a professional photo of the salon interior */
+    .intro-image-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--accent);
+      color: #fff;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+      box-shadow: 0 8px 32px rgba(196,149,106,0.4);
+    }
+    .intro-image-badge .big { font-family: 'Playfair Display', serif; font-size: 2.4rem; line-height: 1; }
+    .intro-image-badge .small { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.9; }
+    .intro-content p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; }
+    .intro-content p:last-of-type { margin-bottom: 32px; }
+    .intro-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .intro-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .intro-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ===== SERVICES ===== */
+    .services-section {
+      background: var(--warm);
+      padding: 96px 0;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 16px;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+    .service-img {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+    .service-body {
+      padding: 24px 24px 28px;
+    }
+    .service-body h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .service-body p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* ===== ABOUT / OWNER SECTION ===== */
+    .about-section {
+      background: var(--dark);
+      padding: 96px 0;
+      color: #fff;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-content h2 { color: #fff; margin-bottom: 24px; }
+    .about-content p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .about-quote {
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      margin: 32px 0;
+      background: rgba(255,255,255,0.05);
+      border-radius: 0 8px 8px 0;
+    }
+    .about-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.9) !important;
+      margin: 0 !important;
+    }
+    .about-image-placeholder {
+      width: 100%;
+      height: 560px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 2px dashed rgba(255,255,255,0.2);
+    }
+    .about-placeholder-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(196,149,106,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 2rem;
+    }
+    .about-placeholder-text {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      max-width: 260px;
+    }
+    .about-placeholder-text strong { color: var(--accent); display: block; font-size: 1.05rem; margin-bottom: 4px; }
+
+    /* ===== WHY CHOOSE ===== */
+    .why-section {
+      background: var(--white);
+      padding: 96px 0;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      margin-top: 16px;
+    }
+    .why-card {
+      padding: 36px 28px;
+      background: var(--warm);
+      border-radius: 10px;
+      border-bottom: 3px solid var(--accent);
+      transition: transform 0.3s;
+    }
+    .why-card:hover { transform: translateY(-4px); }
+    .why-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .why-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .why-card h3 { font-size: 1.2rem; margin-bottom: 12px; font-weight: 600; }
+    .why-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+    /* ===== GALLERY STRIP ===== */
+    .gallery-section {
+      background: var(--warm);
+      padding: 80px 0;
+      overflow: hidden;
+    }
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .gallery-item {
+      height: 260px;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover { transform: scale(1.04); }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-section {
+      background: var(--dark);
+      padding: 96px 0;
+      color: #fff;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 16px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 32px 28px;
+    }
+    .testimonial-stars { color: #FFD700; font-size: 1rem; margin-bottom: 16px; letter-spacing: 3px; }
+    .testimonial-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .testimonial-name { font-weight: 600; font-size: 0.95rem; }
+    .testimonial-location { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .fb-badge {
+      text-align: center;
+      margin-top: 48px;
+    }
+    .fb-badge a {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 14px 24px;
+      border-radius: 50px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .fb-badge a:hover { background: rgba(255,255,255,0.14); color: #fff; }
+    .fb-logo { width: 22px; height: 22px; fill: #1877F2; }
+
+    /* ===== BOOKING SECTION ===== */
+    .booking-section {
+      background: var(--warm);
+      padding: 96px 0;
+    }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .booking-info h2 { font-size: 2.4rem; margin-bottom: 20px; }
+    .booking-info p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 32px; }
+    .contact-details { list-style: none; margin-bottom: 36px; }
+    .contact-details li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .contact-details li:last-child { border-bottom: none; }
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-icon svg { width: 16px; height: 16px; fill: #fff; }
+    .contact-detail-text strong { display: block; font-weight: 600; }
+    .contact-detail-text span { color: var(--text-muted); }
+    .hours-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 16px;
+      margin-top: 8px;
+    }
+    .hours-day { font-weight: 500; }
+    .hours-time { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* FORM */
+    .contact-form-wrap {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    }
+    .form-title {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+    .form-subtitle {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      margin-bottom: 28px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: #fff;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    /* Anti-spam honeypot */
+    .form-honey { display: none !important; }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      letter-spacing: 0.03em;
+    }
+    .form-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .form-submit:disabled { cursor: not-allowed; opacity: 0.8; }
+    .form-submit.success { background: #25D366 !important; pointer-events: none; }
+
+    .form-success-msg {
+      text-align: center;
+      padding: 32px 24px;
+    }
+    .form-success-msg .success-icon {
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .form-success-msg .success-icon svg { width: 28px; height: 28px; fill: #fff; }
+    .form-success-msg h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .form-success-msg p { color: var(--text-muted); margin-bottom: 20px; }
+    .whatsapp-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .whatsapp-cta:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+    /* ===== URGENCY BANNER ===== */
+    .urgency-banner {
+      background: var(--accent);
+      padding: 24px 0;
+      text-align: center;
+    }
+    .urgency-banner p {
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .urgency-banner a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    .urgency-banner a:hover { opacity: 0.85; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark2);
+      padding: 60px 0 32px;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .footer-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .footer-brand .footer-logo-text span {
+      display: block;
+      font-size: 0.65rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: 14px;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .footer-social a:hover { background: var(--accent); }
+    .footer-social svg { width: 18px; height: 18px; fill: #fff; }
+    .footer-col h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-col address {
+      font-style: normal;
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+    .footer-col address a { color: rgba(255,255,255,0.65); }
+    .footer-col address a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.82rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    /* ===== SCROLL ANIMATIONS — PROGRESSIVE ENHANCEMENT ===== */
+    .fade-up {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.will-animate { opacity: 0; transform: translateY(30px); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-strip { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item:nth-child(4),
+      .gallery-item:nth-child(5) { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta .nav-book { display: none; }
+      .nav-toggle { display: flex; }
+      nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: #fff;
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        gap: 0;
+      }
+      nav.open .nav-links a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        display: block;
+      }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-item + .trust-item { border-left: none; }
+      .trust-item:nth-child(odd) + .trust-item { border-left: 1px solid var(--border); }
+      .intro-grid, .about-grid, .booking-grid { grid-template-columns: 1fr; gap: 48px; }
+      .intro-image-main { height: 320px; }
+      .intro-image-badge { bottom: -10px; right: 10px; width: 110px; height: 110px; }
+      .intro-image-badge .big { font-size: 1.8rem; }
+      .about-image-placeholder { height: 320px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(5) { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .contact-form-wrap { padding: 28px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .intro-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-strip { grid-template-columns: 1fr 1fr; }
+      .gallery-item:nth-child(n+3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <!-- Logo: replace the text with an img tag once logo file is in /images/ -->
+      <!-- <img src="images/logo.png" alt="Simon Ferris Hairdressing" style="height:48px"> -->
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-text">
+          Simon Ferris
+          <span>Hairdressing · Coleraine</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#book">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:02870358787" class="nav-phone">028 7035 8787</a>
+        <a href="#book" class="nav-book">Book Now</a>
+      </div>
+      <div class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<!-- STOCK IMAGE: Replace background-image with a professional photo of salon interior or a client receiving a colour/blow-dry service -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner fade-up">
+      <div class="hero-badge">5-Star Salon · Coleraine · Est. 2000</div>
+      <h1>Coleraine's Most Trusted<br>Hair Salon — <em>Transforming</em><br>Hair for Over 25 Years</h1>
+      <p class="hero-sub">Walk out looking and feeling incredible every single time. Expert cuts, colour, extensions and styling from senior stylists with over 10 years' experience each.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-primary">Book Your Appointment</a>
+        <a href="tel:02870358787" class="btn btn-outline">📞 Call Us Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item fade-up">
+        <div class="trust-number">25+</div>
+        <div class="trust-label">Years Serving Coleraine</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-number">5★</div>
+        <div class="trust-label">Five-Star Salon Rating</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-number">96%</div>
+        <div class="trust-label">Recommendation Rate</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-number">10+</div>
+        <div class="trust-label">Years' Experience Per Stylist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INTRO / ABOUT BRIEF ===== -->
+<section class="intro-section" id="about">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-image fade-up">
+        <div class="intro-image-main"></div>
+        <!-- STOCK IMAGE: Replace with a professional interior photo of the Simon Ferris salon -->
+        <div class="intro-image-badge">
+          <span class="big">25</span>
+          <span class="small">Years in<br>Business</span>
+        </div>
+      </div>
+      <div class="intro-content fade-up">
+        <span class="eyebrow">About the Salon</span>
+        <h2 class="section-title">Queen Street's Favourite Hairdressers</h2>
+        <p>Since opening our doors on Queen Street, Coleraine over 25 years ago, Simon Ferris Hairdressing has built a loyal following of clients who love looking their best — and know exactly where to go to get there.</p>
+        <p>We're not your average high-street salon. Every member of our senior team brings over a decade of hands-on experience, backed by continuous training in the latest trends and techniques. Whether you want a classic cut or a bold transformation, we make it happen.</p>
+        <p>Our clients keep coming back — and they keep referring their friends — because we genuinely care about the result every single time you sit in our chair.</p>
+        <ul class="intro-list">
+          <li>Expert Cuts & Styling</li>
+          <li>Colour & Highlights</li>
+          <li>Hair Extensions</li>
+          <li>Blow Dry & Finish</li>
+          <li>Hair Treatments</li>
+          <li>Men's Grooming</li>
+        </ul>
+        <a href="#book" class="btn btn-primary">Book an Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="eyebrow">What We Offer</span>
+      <h2 class="section-title">Services That Make You Look Incredible</h2>
+      <p class="section-subtitle">From a fresh trim to a full colour transformation — we've got you covered. Every service delivered with expert care.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Service 1: Cuts & Styling -->
+      <div class="service-card fade-up">
+        <!-- STOCK IMAGE: Replace with a photo of a client receiving a haircut or styled finish -->
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=60')"></div>
+        <div class="service-body">
+          <h3>Cuts &amp; Styling</h3>
+          <p>From precision cuts to creative styles, our expert stylists shape your hair to complement your face perfectly. Walk out feeling like a new person every time.</p>
+        </div>
+      </div>
+
+      <!-- Service 2: Colour & Highlights -->
+      <div class="service-card fade-up">
+        <!-- STOCK IMAGE: Replace with a photo showing hair colour/highlights being applied or a finished colour result -->
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=600&q=60')"></div>
+        <div class="service-body">
+          <h3>Colour &amp; Highlights</h3>
+          <p>Balayage, full colour, highlights, or a subtle refresh — our colourists blend art with technique to give you gorgeous, natural-looking results that turn heads.</p>
+        </div>
+      </div>
+
+      <!-- Service 3: Hair Extensions -->
+      <div class="service-card fade-up">
+        <!-- STOCK IMAGE: Replace with a photo of hair extensions or long flowing styled hair -->
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=60')"></div>
+        <div class="service-body">
+          <h3>Hair Extensions</h3>
+          <p>Want more length or volume? Our professional extension service adds beautiful, seamless volume that blends naturally and lasts — looking stunning from day one.</p>
+        </div>
+      </div>
+
+      <!-- Service 4: Blow Dry & Finish -->
+      <div class="service-card fade-up">
+        <!-- STOCK IMAGE: Replace with a photo of a professional blow-dry or finished blow-out result -->
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=60')"></div>
+        <div class="service-body">
+          <h3>Blow Dry &amp; Finish</h3>
+          <p>Get that fresh-from-the-salon look whenever you need it. Our blow-dry service leaves your hair smooth, shiny and styled to perfection — ready to walk straight into any room with confidence.</p>
+        </div>
+      </div>
+
+      <!-- Service 5: Treatments -->
+      <div class="service-card fade-up">
+        <!-- STOCK IMAGE: Replace with a photo showing a hair treatment, head massage, or conditioning service -->
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=60')"></div>
+        <div class="service-body">
+          <h3>Treatments &amp; Head Massage</h3>
+          <p>Repair, hydrate and restore your hair's natural shine with our professional treatments. Pair it with our legendary head massage — our clients say it's "to die for."</p>
+        </div>
+      </div>
+
+      <!-- Service 6: Men's Grooming -->
+      <div class="service-card fade-up">
+        <!-- STOCK IMAGE: Replace with a photo of a man receiving a haircut or a finished men's styling result -->
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=60')"></div>
+        <div class="service-body">
+          <h3>Men's Grooming</h3>
+          <p>Sharp cuts, clean finishes, and styling that keeps you looking your best. Our experienced stylists understand what men want — a great look without the fuss.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT / TEAM ===== -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content fade-up">
+        <span class="eyebrow eyebrow-white">Our People</span>
+        <h2 class="section-title">The Team Behind Your Best Hair Days</h2>
+        <p>At Simon Ferris Hairdressing, our team is our biggest asset. Every senior stylist brings over 10 years of experience — but we never stop learning. We invest in ongoing training to ensure our techniques are always fresh, current and precise.</p>
+        <p>We've built a culture where creativity thrives and every client gets the full attention they deserve. Whether you want something young and funky or a timeless classic — we have the skills and the passion to deliver.</p>
+        <div class="about-quote">
+          <p>"Excellent hairdressers if you want young and funky styles. Staff are friendly, helpful and good fun."</p>
+        </div>
+        <a href="#book" class="btn btn-outline" style="border-color: var(--accent); color: var(--accent);">Meet Our Stylists</a>
+      </div>
+      <div class="fade-up">
+        <!-- OWNER / TEAM PHOTO PLACEHOLDER -->
+        <div class="about-image-placeholder">
+          <div class="about-placeholder-icon">✂️</div>
+          <div class="about-placeholder-text">
+            <strong>Team / Owner Photo</strong>
+            Replace with a professional photo of Simon Ferris and/or the team in the salon
+          </div>
+        </div>
+        <!-- STOCK IMAGE: Replace with a real professional photo of Simon Ferris or the full team -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why-section">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="eyebrow">Why Clients Love Us</span>
+      <h2 class="section-title">What Sets Simon Ferris Apart</h2>
+      <p class="section-subtitle">It's the small things that add up to an exceptional experience every single visit.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <h3>25 Years of Excellence</h3>
+        <p>A quarter-century of experience right here in Coleraine. Our reputation has been built one brilliant haircut at a time — and we protect it with every appointment.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11C17.66 11 18.99 9.66 18.99 8C18.99 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8C10.99 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z"/></svg>
+        </div>
+        <h3>Senior Stylists Every Time</h3>
+        <p>Every stylist on our team has 10+ years of hands-on experience. You will never be handed off to a junior. Your hair gets expert attention from start to finish.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/></svg>
+        </div>
+        <h3>Results You'll Actually Love</h3>
+        <p>96% recommendation rate from our clients speaks for itself. We listen carefully, consult thoroughly, and only pick up the scissors when we know exactly what result you want.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.5 2C6.81 2 3 5.81 3 10.5C3 15.19 6.81 19 11.5 19H12V22C16.86 18.66 21 15 21 10.5C21 5.81 17.19 2 11.5 2ZM12.5 16.5H10.5V14.5H12.5V16.5ZM12.5 13H10.5C10.5 9.75 13.5 10 13.5 8C13.5 6.9 12.6 6 11.5 6C10.4 6 9.5 6.9 9.5 8H7.5C7.5 5.79 9.29 4 11.5 4C13.71 4 15.5 5.79 15.5 8C15.5 10.5 12.5 10.75 12.5 13Z"/></svg>
+        </div>
+        <h3>Always Up to Date</h3>
+        <p>We invest in continuous training so our team stays ahead of every trend. From the latest balayage techniques to cutting-edge styling — we bring it all to Coleraine.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3C6.95 3 3 6.95 3 12S6.95 21 12 21 21 17.05 21 12 17.05 3 12 3ZM12 19C8.13 19 5 15.87 5 12S8.13 5 12 5 19 8.13 19 12 15.87 19 12 19ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"/></svg>
+        </div>
+        <h3>Convenient Town Centre Location</h3>
+        <p>Right in the heart of Coleraine on Queen Street — easy to find, easy to park, and central for the whole Causeway Coast area.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z"/></svg>
+        </div>
+        <h3>A Salon Experience to Remember</h3>
+        <p>Friendly faces, a relaxed atmosphere, and a legendary head massage that our clients rave about. This is your time — enjoy every minute of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="eyebrow">Our Work</span>
+      <h2 class="section-title">The Looks We Create</h2>
+      <p class="section-subtitle">Every client leaves looking and feeling their absolute best. Browse some of our work below.</p>
+    </div>
+  </div>
+  <div style="padding: 0 24px; max-width:1140px; margin:0 auto;">
+    <div class="gallery-strip">
+      <!-- STOCK IMAGE: Replace each gallery item with real before/after or styled hair photos from the salon -->
+      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&q=60')"></div>
+      <!-- STOCK IMAGE: Replace with real salon work photo - colour result -->
+      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=500&q=60')"></div>
+      <!-- STOCK IMAGE: Replace with real salon work photo - styling result -->
+      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=500&q=60')"></div>
+      <!-- STOCK IMAGE: Replace with real salon work photo - men's cut or creative style -->
+      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1559599101-f09722fb4948?w=500&q=60')"></div>
+      <!-- STOCK IMAGE: Replace with real salon work photo - highlights or balayage result -->
+      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=500&q=60')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials-section" id="reviews">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="eyebrow eyebrow-white">What Clients Say</span>
+      <h2 class="section-title text-white">Loved by Coleraine</h2>
+      <p class="section-subtitle text-white">Real words from real clients — 96% of our customers would recommend us to a friend.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Excellent hairdressers if you want young and funky styles. Staff are friendly, helpful and good fun. Always leave feeling brilliant."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sarah M.</div>
+            <div class="testimonial-location">Coleraine</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Can be quite pricey but it is well worth it — not the most expensive I've paid either. The head massage is absolutely to die for. Will always come back."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">L</div>
+          <div>
+            <div class="testimonial-name">Laura K.</div>
+            <div class="testimonial-location">Portrush</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I've been coming to Simon Ferris for years. The team really listen to what you want and consistently deliver. Genuinely the best salon in Coleraine — no question."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Aine O'D.</div>
+            <div class="testimonial-location">Coleraine</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fb-badge">
+      <a href="https://www.facebook.com/SimonFerrisHairdressing/" target="_blank" rel="noopener">
+        <svg class="fb-logo" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        See all reviews on Facebook · 96% Recommendation Rate
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOKING / CONTACT ===== -->
+<section class="booking-section" id="book">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="booking-info fade-up">
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Book Your Appointment Today</h2>
+        <p>Ready to treat yourself? Call us directly for the fastest response, or fill in the form and we'll be in touch shortly to confirm your appointment.</p>
+        <ul class="contact-details">
+          <li>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong><a href="tel:02870358787">028 7035 8787</a></strong>
+              <span>Call or text to book</span>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>14e Queen Street, Coleraine</strong>
+              <span>BT52 1BE, Northern Ireland</span>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>Opening Hours</strong>
+              <!-- TODO: Confirm exact opening hours with client -->
+              <div class="hours-grid">
+                <span class="hours-day">Mon – Fri</span><span class="hours-time">9:00am – 5:30pm</span>
+                <span class="hours-day">Saturday</span><span class="hours-time">9:00am – 5:00pm</span>
+                <span class="hours-day">Sunday</span><span class="hours-time">Closed</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <a href="https://www.facebook.com/SimonFerrisHairdressing/" target="_blank" rel="noopener" class="btn btn-dark">
+          Follow Us on Facebook
+        </a>
+      </div>
+
+      <div class="fade-up">
+        <div class="contact-form-wrap" id="formWrap">
+          <h3 class="form-title">Request an Appointment</h3>
+          <p class="form-subtitle">We'll confirm your booking within a few hours.</p>
+
+          <!-- Web3Forms AJAX contact form -->
+          <!-- Replace YOUR_WEB3FORMS_ACCESS_KEY with the real key from web3forms.com -->
+          <form id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New Appointment Request — Simon Ferris Hairdressing">
+            <input type="hidden" name="from_name" value="Simon Ferris Website">
+            <input type="hidden" name="redirect" value="">
+
+            <!-- Honeypot anti-spam -->
+            <input type="text" name="botcheck" class="form-honey" tabindex="-1" autocomplete="off">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="first_name" placeholder="Jane" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="last_name" placeholder="Smith">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="028 xxxx xxxx" required>
+            </div>
+            <div class="form-group">
+              <label for="service">Service Required</label>
+              <select id="service" name="service">
+                <option value="">— Select a service —</option>
+                <option>Cut &amp; Styling</option>
+                <option>Colour &amp; Highlights</option>
+                <option>Hair Extensions</option>
+                <option>Blow Dry &amp; Finish</option>
+                <option>Hair Treatment</option>
+                <option>Men's Grooming</option>
+                <option>Not sure — please advise</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Anything else we should know?</label>
+              <textarea id="message" name="message" placeholder="Preferred day/time, any hair concerns, or questions…"></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="formSubmit">Request Appointment →</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== URGENCY BANNER ===== -->
+<div class="urgency-banner">
+  <div class="container">
+    <p>⚡ Appointment slots fill up fast — especially at weekends. <a href="tel:02870358787">Call 028 7035 8787</a> now to secure your preferred time.</p>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-text">
+          Simon Ferris
+          <span>Hairdressing · Coleraine</span>
+        </div>
+        <!-- Replace with: <img src="images/logo.png" alt="Simon Ferris Hairdressing" style="height:44px;margin-bottom:16px"> -->
+        <p>Coleraine's most trusted hair salon for over 25 years. Expert cuts, colour, extensions and styling on Queen Street.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/SimonFerrisHairdressing/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Cuts &amp; Styling</a></li>
+          <li><a href="#services">Colour &amp; Highlights</a></li>
+          <li><a href="#services">Hair Extensions</a></li>
+          <li><a href="#services">Blow Dry &amp; Finish</a></li>
+          <li><a href="#services">Hair Treatments</a></li>
+          <li><a href="#services">Men's Grooming</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <address>
+          14e Queen Street<br>
+          Coleraine<br>
+          BT52 1BE<br>
+          Northern Ireland<br><br>
+          <a href="tel:02870358787">028 7035 8787</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Simon Ferris Hairdressing. All rights reserved.</span>
+      <a href="https://www.realfastwebsite.com" target="_blank" rel="noopener">Website by www.realfastwebsite.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  // ── Sticky nav shadow ──
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ── Mobile nav toggle ──
+  document.getElementById('navToggle').addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+
+  // Close nav on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+
+  // ── Scroll animations — progressive enhancement ──
+  if ('IntersectionObserver' in window) {
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('will-animate'));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  }
+
+  // ── Web3Forms AJAX submission ──
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('formSubmit');
+  const formWrap = document.getElementById('formWrap');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Basic validation
+      const phone = document.getElementById('phone').value.trim();
+      const firstName = document.getElementById('firstName').value.trim();
+      if (!firstName || !phone) {
+        alert('Please fill in your name and phone number.');
+        return;
+      }
+
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json();
+
+        if (json.success) {
+          submitBtn.textContent = 'Sent! ✓';
+          submitBtn.classList.add('success');
+
+          setTimeout(() => {
+            formWrap.innerHTML = `
+              <div class="form-success-msg">
+                <div class="success-icon">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <h3>Appointment Request Received!</h3>
+                <p>Thanks! We'll be in contact very soon to confirm your booking.</p>
+                <a href="https://www.facebook.com/SimonFerrisHairdressing/" target="_blank" class="whatsapp-cta" style="background:#1877F2">
+                  <svg style="width:20px;height:20px;fill:#fff" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  Message Us on Facebook
+                </a>
+              </div>`;
+          }, 800);
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        submitBtn.textContent = 'Something went wrong — try again';
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
