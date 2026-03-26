@@ -190,11 +190,10 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background-image: url('https://images.unsplash.com/photo-1560869713-7d0a29430803?w=1400&q=60');
+      background-image: url('images/interior-heroshot.png');
       background-size: cover;
       background-position: center top;
     }
-    /* STOCK IMAGE: Replace with a professional photo of the salon interior or a client getting their hair styled */
     .hero::before {
       content: '';
       position: absolute;
@@ -335,12 +334,11 @@
     .intro-image-main {
       width: 100%;
       height: 500px;
-      background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=60');
+      background-image: url('images/shopfront.png');
       background-size: cover;
       background-position: center;
       border-radius: 8px;
     }
-    /* STOCK IMAGE: Replace with a professional photo of the salon interior */
     .intro-image-badge {
       position: absolute;
       bottom: -20px;
@@ -457,38 +455,20 @@
       color: rgba(255,255,255,0.9) !important;
       margin: 0 !important;
     }
-    .about-image-placeholder {
+    .about-owner-img {
       width: 100%;
       height: 560px;
       border-radius: 10px;
       overflow: hidden;
       position: relative;
-      background: rgba(255,255,255,0.08);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border: 2px dashed rgba(255,255,255,0.2);
     }
-    .about-placeholder-icon {
-      width: 80px;
-      height: 80px;
-      background: rgba(196,149,106,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      font-size: 2rem;
+    .about-owner-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
-    .about-placeholder-text {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      max-width: 260px;
-    }
-    .about-placeholder-text strong { color: var(--accent); display: block; font-size: 1.05rem; margin-bottom: 4px; }
 
     /* ===== WHY CHOOSE ===== */
     .why-section {
@@ -537,12 +517,17 @@
     .gallery-item {
       height: 260px;
       border-radius: 8px;
-      background-size: cover;
-      background-position: center;
       overflow: hidden;
       transition: transform 0.4s ease;
     }
     .gallery-item:hover { transform: scale(1.04); }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
 
     /* ===== TESTIMONIALS ===== */
     .testimonials-section {
@@ -901,7 +886,7 @@
       .intro-image-main { height: 320px; }
       .intro-image-badge { bottom: -10px; right: 10px; width: 110px; height: 110px; }
       .intro-image-badge .big { font-size: 1.8rem; }
-      .about-image-placeholder { height: 320px; }
+      .about-owner-img { height: 320px; }
       .services-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -954,7 +939,6 @@
 </nav>
 
 <!-- ===== HERO ===== -->
-<!-- STOCK IMAGE: Replace background-image with a professional photo of salon interior or a client receiving a colour/blow-dry service -->
 <section class="hero">
   <div class="container">
     <div class="hero-inner fade-up">
@@ -1000,7 +984,6 @@
     <div class="intro-grid">
       <div class="intro-image fade-up">
         <div class="intro-image-main"></div>
-        <!-- STOCK IMAGE: Replace with a professional interior photo of the Simon Ferris salon -->
         <div class="intro-image-badge">
           <span class="big">25</span>
           <span class="small">Years in<br>Business</span>
@@ -1038,8 +1021,7 @@
 
       <!-- Service 1: Cuts & Styling -->
       <div class="service-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo of a client receiving a haircut or styled finish -->
-        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=60')"></div>
+        <div class="service-img" style="background-image: url('images/womans-haircut.png')"></div>
         <div class="service-body">
           <h3>Cuts &amp; Styling</h3>
           <p>From precision cuts to creative styles, our expert stylists shape your hair to complement your face perfectly. Walk out feeling like a new person every time.</p>
@@ -1048,8 +1030,7 @@
 
       <!-- Service 2: Colour & Highlights -->
       <div class="service-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo showing hair colour/highlights being applied or a finished colour result -->
-        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=600&q=60')"></div>
+        <div class="service-img" style="background-image: url('images/colour-and-highlight.png')"></div>
         <div class="service-body">
           <h3>Colour &amp; Highlights</h3>
           <p>Balayage, full colour, highlights, or a subtle refresh — our colourists blend art with technique to give you gorgeous, natural-looking results that turn heads.</p>
@@ -1058,8 +1039,7 @@
 
       <!-- Service 3: Hair Extensions -->
       <div class="service-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo of hair extensions or long flowing styled hair -->
-        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=60')"></div>
+        <div class="service-img" style="background-image: url('images/woman-hair-extensions.png')"></div>
         <div class="service-body">
           <h3>Hair Extensions</h3>
           <p>Want more length or volume? Our professional extension service adds beautiful, seamless volume that blends naturally and lasts — looking stunning from day one.</p>
@@ -1068,8 +1048,7 @@
 
       <!-- Service 4: Blow Dry & Finish -->
       <div class="service-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo of a professional blow-dry or finished blow-out result -->
-        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=60')"></div>
+        <div class="service-img" style="background-image: url('images/blowout.png')"></div>
         <div class="service-body">
           <h3>Blow Dry &amp; Finish</h3>
           <p>Get that fresh-from-the-salon look whenever you need it. Our blow-dry service leaves your hair smooth, shiny and styled to perfection — ready to walk straight into any room with confidence.</p>
@@ -1078,8 +1057,7 @@
 
       <!-- Service 5: Treatments -->
       <div class="service-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo showing a hair treatment, head massage, or conditioning service -->
-        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=60')"></div>
+        <div class="service-img" style="background-image: url('images/hair-washing-basin.jpg')"></div>
         <div class="service-body">
           <h3>Treatments &amp; Head Massage</h3>
           <p>Repair, hydrate and restore your hair's natural shine with our professional treatments. Pair it with our legendary head massage — our clients say it's "to die for."</p>
@@ -1088,8 +1066,7 @@
 
       <!-- Service 6: Men's Grooming -->
       <div class="service-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo of a man receiving a haircut or a finished men's styling result -->
-        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=60')"></div>
+        <div class="service-img" style="background-image: url('images/mens-cuts-style.png')"></div>
         <div class="service-body">
           <h3>Men's Grooming</h3>
           <p>Sharp cuts, clean finishes, and styling that keeps you looking your best. Our experienced stylists understand what men want — a great look without the fuss.</p>
@@ -1114,16 +1091,8 @@
         </div>
         <a href="#book" class="btn btn-outline" style="border-color: var(--accent); color: var(--accent);">Meet Our Stylists</a>
       </div>
-      <div class="fade-up">
-        <!-- OWNER / TEAM PHOTO PLACEHOLDER -->
-        <div class="about-image-placeholder">
-          <div class="about-placeholder-icon">✂️</div>
-          <div class="about-placeholder-text">
-            <strong>Team / Owner Photo</strong>
-            Replace with a professional photo of Simon Ferris and/or the team in the salon
-          </div>
-        </div>
-        <!-- STOCK IMAGE: Replace with a real professional photo of Simon Ferris or the full team -->
+      <div class="about-owner-img fade-up">
+        <img src="images/simon-ferris.png" alt="Simon Ferris in his salon">
       </div>
     </div>
   </div>
@@ -1140,8 +1109,7 @@
     <div class="why-grid">
 
       <div class="why-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo showing an established, professional salon interior — warm and inviting -->
-        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=60')"></div>
+        <div class="why-card-img" style="background-image: url('images/interior-salon.png')"></div>
         <div class="why-card-body">
           <h3>25 Years of Excellence</h3>
           <p>A quarter-century of experience right here in Coleraine. Our reputation has been built one brilliant haircut at a time — and we protect it with every appointment.</p>
@@ -1149,8 +1117,7 @@
       </div>
 
       <div class="why-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo of an experienced stylist working on a client's hair -->
-        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&q=60')"></div>
+        <div class="why-card-img" style="background-image: url('images/hair-consultation-2.png')"></div>
         <div class="why-card-body">
           <h3>Senior Stylists Every Time</h3>
           <p>Every stylist on our team has 10+ years of hands-on experience. You will never be handed off to a junior. Your hair gets expert attention from start to finish.</p>
@@ -1158,8 +1125,7 @@
       </div>
 
       <div class="why-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo of a happy client looking at their reflection / finished result -->
-        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=60')"></div>
+        <div class="why-card-img" style="background-image: url('images/layered-bob-result.png')"></div>
         <div class="why-card-body">
           <h3>Results You'll Actually Love</h3>
           <p>96% recommendation rate from our clients speaks for itself. We listen carefully, consult thoroughly, and only pick up the scissors when we know exactly what result you want.</p>
@@ -1167,8 +1133,7 @@
       </div>
 
       <div class="why-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo showing modern colour or balayage technique being applied -->
-        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&q=60')"></div>
+        <div class="why-card-img" style="background-image: url('images/balayage-foils-modern.png')"></div>
         <div class="why-card-body">
           <h3>Always Up to Date</h3>
           <p>We invest in continuous training so our team stays ahead of every trend. From the latest balayage techniques to cutting-edge styling — we bring it all to Coleraine.</p>
@@ -1176,8 +1141,7 @@
       </div>
 
       <div class="why-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo of Queen Street Coleraine or the salon exterior -->
-        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&q=60')"></div>
+        <div class="why-card-img" style="background-image: url('images/salon-interior-2.png')"></div>
         <div class="why-card-body">
           <h3>Convenient Town Centre Location</h3>
           <p>Right in the heart of Coleraine on Queen Street — easy to find, easy to park, and central for the whole Causeway Coast area.</p>
@@ -1185,8 +1149,7 @@
       </div>
 
       <div class="why-card fade-up">
-        <!-- STOCK IMAGE: Replace with a photo of a relaxing head massage or client enjoying a treatment -->
-        <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=60')"></div>
+        <div class="why-card-img" style="background-image: url('images/hairwashbasin.png')"></div>
         <div class="why-card-body">
           <h3>A Salon Experience to Remember</h3>
           <p>Friendly faces, a relaxed atmosphere, and a legendary head massage that our clients rave about. This is your time — enjoy every minute of it.</p>
@@ -1208,16 +1171,11 @@
   </div>
   <div style="padding: 0 24px; max-width:1140px; margin:0 auto;">
     <div class="gallery-strip">
-      <!-- STOCK IMAGE: Replace each gallery item with real before/after or styled hair photos from the salon -->
-      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&q=60')"></div>
-      <!-- STOCK IMAGE: Replace with real salon work photo - colour result -->
-      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=500&q=60')"></div>
-      <!-- STOCK IMAGE: Replace with real salon work photo - styling result -->
-      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=500&q=60')"></div>
-      <!-- STOCK IMAGE: Replace with real salon work photo - men's cut or creative style -->
-      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1559599101-f09722fb4948?w=500&q=60')"></div>
-      <!-- STOCK IMAGE: Replace with real salon work photo - highlights or balayage result -->
-      <div class="gallery-item fade-up" style="background-image: url('https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=500&q=60')"></div>
+      <div class="gallery-item fade-up"><img src="images/our-work.jpg" alt="Hair work by Simon Ferris"></div>
+      <div class="gallery-item fade-up"><img src="images/our-work1.jpg" alt="Colour work by Simon Ferris"></div>
+      <div class="gallery-item fade-up"><img src="images/our-work2.jpg" alt="Styling by Simon Ferris"></div>
+      <div class="gallery-item fade-up"><img src="images/shopfront-night.png" alt="Simon Ferris Hairdressing at night"></div>
+      <div class="gallery-item fade-up"><img src="images/womans-colour-4.png" alt="Hair colour result"></div>
     </div>
   </div>
 </section>
